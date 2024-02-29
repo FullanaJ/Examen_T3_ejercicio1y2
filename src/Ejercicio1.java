@@ -17,7 +17,9 @@ public class Ejercicio1 {
         int longitud = 20; // Longitud de la cadena aleatoria
         String url;
         while (true) {
+            //pido una URL por consola
             url = Ejercicio2.asksForURL();
+            //si la URL esta vacia se sale del bucle
             if (url.equals(""))
                 break;
             map.put(RandomStringGenerator.generarCadenaAleatoria(longitud),url);

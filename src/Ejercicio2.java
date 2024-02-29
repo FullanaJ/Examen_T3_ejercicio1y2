@@ -75,6 +75,10 @@ public class Ejercicio2 {
         ).join();
     }
 
+    /**
+     * Pide una URL por consola
+     * @return
+     */
     public static String asksForURL() {
         System.out.println("Introduce la URL: ");
         Scanner scanner = new Scanner(System.in);
@@ -123,7 +127,7 @@ public class Ejercicio2 {
      * @param url
      */
     public static void descargaURL(String code, String url){
-
+        // Se crea el path donde se guardara la pagina
         Path path = Path.of("").toAbsolutePath().resolve("paginas").resolve(code);
         CompletableFuture<HttpResponse<String>> completableFuture = CompletableFuture.supplyAsync(
                 () ->{
@@ -140,12 +144,7 @@ public class Ejercicio2 {
                 }
         ).thenApply(
                 (response) -> {
-                    System.out.println("Status code: " + response.statusCode());
-                    System.out.println("Headers: " + response.headers());
-                    return response;
-                }
-        ).thenApply(
-                (response) -> {
+                    // Si el directorio no existe se crea
                     if (!Files.exists(path)) {
                         try {
                             Files.createFile(path);
@@ -153,6 +152,7 @@ public class Ejercicio2 {
                             throw new RuntimeException(e);
                         }
                     }
+                    // Se guarda la pagina en el directorio
                     try {
                         Files.writeString(path, response.body());
                     } catch (IOException e) {
