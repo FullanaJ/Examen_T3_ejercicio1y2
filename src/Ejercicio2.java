@@ -1,5 +1,6 @@
 import java.io.*;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
@@ -14,27 +15,8 @@ import java.util.zip.ZipOutputStream;
 import javafx.collections.*;
 
 
-public class main {
+public class Ejercicio2 {
 
-    /**
-     * Ejercicio 1
-     * @return
-     */
-//    public static void main(String[] args) throws URISyntaxException {
-//
-//
-//        ObservableMap<String, String> map = FXCollections.observableHashMap();
-//        map.addListener(new DownloaderAndZipper());
-//        int longitud = 20; // Longitud de la cadena aleatoria
-//        String url;
-//        while (true) {
-//            url = asksForURL();
-//            if (url.equals(""))
-//                break;
-//            map.put(RandomStringGenerator.generarCadenaAleatoria(longitud),url);
-//        }
-//        System.out.println("Se va a proceder a descargar y comprimir los ficheros");
-//    }
 
     /**
      * Ejercicio 2
@@ -68,7 +50,7 @@ public class main {
     private static void descargaYcomprime(ObservableMap<String, String> map) {
         CompletableFuture.supplyAsync(
                 () ->{
-                    map.forEach(main::descargaURL);
+                    map.forEach(Ejercicio2::descargaURL);
                     return null;
                 }
         ).whenComplete(
@@ -93,7 +75,7 @@ public class main {
         ).join();
     }
 
-    private static String asksForURL() {
+    public static String asksForURL() {
         System.out.println("Introduce la URL: ");
         Scanner scanner = new Scanner(System.in);
         return Objects.requireNonNull(scanner.nextLine(), "");

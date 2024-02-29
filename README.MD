@@ -15,18 +15,18 @@ Este programa en Java descarga páginas web desde URLs proporcionadas por el usu
 3. Compila el código con el siguiente comando:
 
    ```bash
-   javac main.java
+   javac Ejercicio2.java
 
 Ejecuta el programa con el siguiente comando:
 
-java main
+java Ejercicio2
 
 Sigue las instrucciones en la consola para introducir las URLs de las páginas web que deseas descargar. Introduce una URL vacía para finalizar la entrada.
 
 El programa descargará las páginas web y las comprimirá en un archivo ZIP llamado dirCompressed.zip en el directorio actual.Ejecuta el programa con el siguiente comando:
 
 
-java main
+java Ejercicio2
 
 Sigue las instrucciones en la consola para introducir las URLs de las páginas web que deseas descargar. Introduce una URL vacía para finalizar la entrada.
 
